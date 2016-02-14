@@ -41,15 +41,15 @@
 
 ## Spring Boot Actuator
 
-The Spring Boot Actuator provides useful insights into Spring Boot application, e.g. [http://localhost:8080/actuator] (http://localhost:8080/actuator)
+The Spring Boot Actuator provides useful insights into Spring Boot application, e.g. [http://localhost:8080/admin] (http://localhost:8080/admin)
 
-* General information about application, e.g. [http://localhost:8080/info] (http://localhost:8080/info)
-* Collected counters and metrics, e.g. [http://localhost:8080/metrics] (http://localhost:8080/metrics)
-* Tracing information, e.g. [http://localhost:8080/trace] (http://localhost:8080/trace)
-* Thread dump, e.g. [http://localhost:8080/dump] (http://localhost:8080/dump)
-* Environment variables, e.g. [http://localhost:8080/env] (http://localhost:8080/env)
-* Health indicators, e.g. [http://localhost:8080/health] (http://localhost:8080/health)
-* URL mappings, e.g. [http://localhost:8080/mappings] (http://localhost:8080/mappings)
-* Spring Beans, e.g. [http://localhost:8080/beans] (http://localhost:8080/beans)
+* General information about application, e.g. [http://localhost:8080/admin/info] (http://localhost:8080/admin/info)
+* Collected counters and metrics, e.g. [http://localhost:8080/admin/metrics] (http://localhost:8080/admin/metrics)
+* Tracing information, e.g. [http://localhost:8080/admin/trace] (http://localhost:8080/admin/trace)
+* Thread dump, e.g. [http://localhost:8080/admin/dump] (http://localhost:8080/admin/dump)
+* Environment variables, e.g. [http://localhost:8080/admin/env] (http://localhost:8080/admin/env)
+* Health indicators, e.g. [http://localhost:8080/admin/health] (http://localhost:8080/admin/health)
+* URL mappings, e.g. [http://localhost:8080/admin/mappings] (http://localhost:8080/admin/mappings)
+* Spring Beans, e.g. [http://localhost:8080/admin/beans] (http://localhost:8080/admin/beans)
 
 
