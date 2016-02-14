@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.data.rest.core.annotation.RestResource;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -35,12 +36,16 @@ public class PhonebookServiceApplication {
 @RepositoryRestResource
 interface EntryRepository extends JpaRepository<Entry, Long> {
 
+    @RestResource(path = "by-name")
     Collection<Entry> findEntriesByName(@Param("name") String name);
 
+    @RestResource(path = "by-name-ignore-case")
     Collection<Entry> findEntriesByNameIgnoreCase(@Param("name") String name);
 
+    @RestResource(path = "by-partial-name")
     Collection<Entry> findEntriesByNameLike(@Param("name") String name);
 
+    @RestResource(path = "by-partial-name-ignore-case")
     Collection<Entry> findEntriesByNameLikeIgnoreCase(@Param("name") String name);
 
 }
