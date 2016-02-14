@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Component;
 
@@ -19,23 +20,13 @@ public class PhonebookServiceApplication {
         SpringApplication.run(PhonebookServiceApplication.class, args);
     }
 
-}
-
-@Component
-class DummyCLR implements CommandLineRunner {
-
-    @Autowired
-    private EntryRepository entries;
-
-    @Override
-    public void run(String... strings) throws Exception {
-
-        // create new phone entries
-        Stream.of("John", "Jane", "Jack", "Jill", "Joan", "Jeff", "Jenn", "Jeri", "Jean", "Josh")
-                .forEach(name -> entries.save(new Entry(null,name,null,null, null)));
-
-        // output all entries
-        entries.findAll().forEach(System.out::println);
+    @Bean
+    CommandLineRunner dummyCLR (EntryRepository entries) {
+        return args -> {
+            Stream.of("John", "Jane", "Jack", "Jill", "Joan", "Jeff", "Jenn", "Jeri", "Jean", "Josh")
+                    .forEach(name -> entries.save(new Entry(null,name,null,null, null)));
+            entries.findAll().forEach(System.out::println);
+        };
     }
 
 }
