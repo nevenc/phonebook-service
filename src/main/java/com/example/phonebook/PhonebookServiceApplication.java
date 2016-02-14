@@ -5,11 +5,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Collection;
 import java.util.stream.Stream;
 
 @SpringBootApplication
@@ -32,6 +34,15 @@ public class PhonebookServiceApplication {
 
 @RepositoryRestResource
 interface EntryRepository extends JpaRepository<Entry, Long> {
+
+    Collection<Entry> findEntriesByName(@Param("name") String name);
+
+    Collection<Entry> findEntriesByNameIgnoreCase(@Param("name") String name);
+
+    Collection<Entry> findEntriesByNameLike(@Param("name") String name);
+
+    Collection<Entry> findEntriesByNameLikeIgnoreCase(@Param("name") String name);
+
 }
 
 @Entity
