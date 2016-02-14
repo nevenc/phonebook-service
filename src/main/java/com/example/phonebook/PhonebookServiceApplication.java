@@ -6,6 +6,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,21 +36,7 @@ public class PhonebookServiceApplication {
 
 }
 
-
-@RestController
-class EntriesController {
-
-    @Autowired
-    private EntryRepository entries;
-
-    @RequestMapping(method = RequestMethod.GET, value = "/entries")
-    List<Entry> entries() {
-        return entries.findAll();
-    }
-
-}
-
-
+@RepositoryRestResource
 interface EntryRepository extends JpaRepository<Entry, Long> {
 }
 
