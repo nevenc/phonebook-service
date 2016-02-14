@@ -6,11 +6,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.List;
 import java.util.stream.Stream;
 
 @SpringBootApplication
@@ -30,6 +33,21 @@ public class PhonebookServiceApplication {
     }
 
 }
+
+
+@RestController
+class EntriesController {
+
+    @Autowired
+    private EntryRepository entries;
+
+    @RequestMapping(method = RequestMethod.GET, value = "/entries")
+    List<Entry> entries() {
+        return entries.findAll();
+    }
+
+}
+
 
 interface EntryRepository extends JpaRepository<Entry, Long> {
 }
