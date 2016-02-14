@@ -52,4 +52,18 @@ The Spring Boot Actuator provides useful insights into Spring Boot application, 
 * URL mappings, e.g. [http://localhost:8080/admin/mappings] (http://localhost:8080/admin/mappings)
 * Spring Beans, e.g. [http://localhost:8080/admin/beans] (http://localhost:8080/admin/beans)
 
+## Spring Executable
+
+* By default, Spring Boot applications make executable JARs (specify a class with a `main` method). These JARs can be executed using JVM, e.g.
+
+```
+java -jar ./target/phonebook-service-0.0.1-SNAPSHOT.jar
+```
+
+* However, you can make the JAR "really" executable by turning on the configuration in `pom.xml` file. The JAR is read from the back of the file, so we can use the beginning of the file to provide bash script that will run this JAR. Spring Boot makes this possible, e.g.
+
+```
+./target/phonebook-service-0.0.1-SNAPSHOT.jar
+```
+
 
